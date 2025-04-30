@@ -1,6 +1,5 @@
-name = input("Nama? :")
-letters = list(name)
-num_letters = len(letters)
+name = input("Nama? : ")
+num_letters = len(name)
 
 if num_letters <= 5:
     print("Teman Toni")
