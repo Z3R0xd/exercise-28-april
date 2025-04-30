@@ -1,12 +1,10 @@
-def sentenceGenerator(words):
-    sentence = 0
-    for word in words:
-        if sentence == 0 :
-            sentence = word
-        else :
-            sentence = sentence + " " + word
+def sentenceGenerator(*args):
+    sentence = ""
+    for word in args:
+        sentence += word
+        sentence += " "
     return sentence
 
-words = ["When", "I", "was", "a", "young", "boy"]
-
-print(sentenceGenerator(words))
+print(sentenceGenerator("When", "I", "was", "a", "young", "boy"))
+print(sentenceGenerator("My", "Father", "took", "me", "into", "the", "city"))
+print(sentenceGenerator("To", "see", "a", "marching", "band"))
