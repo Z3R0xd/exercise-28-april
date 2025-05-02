@@ -15,7 +15,7 @@ class Employee:
         self.__department = department
     
     def print_employee_details(self):
-        print(f"Name : {self.__name}\n ID : {self.__id}\n Salary : {self.__salary}\n Department : {self.__department}")
+        print(f"Name : {self.__name}\nID : {self.__id}\nSalary : {self.__salary}\nDepartment : {self.__department}")
         
         
 Name = input("Name : ")
