@@ -1,10 +1,14 @@
 # import packages
 # fastapi -> packages untuk membuat API
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Header
 import pandas as pd
 
 # FastAPI -> class untuk membuat API
 app = FastAPI()
+
+# Create api key
+api_key = "28gacorr"
+
 
 # api function -> get, put, post, delete
 
@@ -61,3 +65,16 @@ def updateData(item_id:int, item_name:str, item_price:int):
     
     # outuput
     return {"message": f"item dengan nama {item_name} telah berhasil ditambahkan :D"}
+
+# bikin endpoint untuk read data rahasia
+@app.get("/datarahasia")
+def readSecret(password: str = Header(None)):
+    # baca data rahasia
+    df_income = pd.read_csv("dataIncome.csv")
+    
+    # kondisi untuk matching password inputan dengan api_key
+    if password != api_key or password == None:
+        raise HTTPException(status_code=401, detail="Akses ditolak!")
+    
+    # output
+    return df_income.to_dict(orient="records")
